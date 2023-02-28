@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../FontAwesome/font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="1.css"/> -->
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				/* background-color: darkturquoise; */
+			}
+			
+			#box1{
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				background-color: skyblue;
+				z-index: 1;
+			}
+			#box2{
+				width: 600px;
+				height: 600px;
+				background-color: orangered;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				transform-origin: left center;
+				border-radius: 50%;
+				/* display: none; */
+				z-index: 2;
+			}
+			#box3{
+				width: 600px;
+				height: 600px;
+				background-color: #040720;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				/* transform: translate(-50%,-50%); */
+				transform: translate(-76.7%,-80%);
+				border-radius: 50%;
+				box-shadow:160px 180px 0 gold;
+				z-index: 2;
+				
+			}
+			#box4{
+				/* margin-bottom: 0px; */
+				bottom: 0px;
+				width: 100vw;
+				height: 200px;
+				background-color: beige;
+				position: absolute;
+				filter: blur(40px);
+				
+				z-index: 5;
+			}
+			#box5{
+				width: 100vw;
+				
+				height: 100vh;
+				position: absolute;
+				background-color: #040720;
+				z-index: 1;
+				
+				
+			}
+			#box6{
+				position: absolute;
+				z-index: 100;
+			}
+			#box6 #flag{
+				color: #9932CC;
+			}
+			#box6 #sun:hover{
+				background-color: gray;
+				border-radius: 10px;
+				box-shadow: 5px 5px 50px palegoldenrod;
+				cursor: pointer;
+			}
+			#box6 #moon:hover{
+				background-color: gray;
+				border-radius: 10px;
+				box-shadow: 5px 5px 50px palegoldenrod;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				var box1 = document.getElementById('box1');
+				var box2 = document.getElementById('box2');
+				var box3 = document.getElementById('box3');
+				var box4 = document.getElementById('box4');
+				var box5 = document.getElementById('box5');
+				// box1.style.width = '100%';
+				var box1w = parseInt(getComputedStyle(box1,null)["width"]);
+				var box2w = parseInt(getComputedStyle(box2,null)['width']);
+				var sun = document.getElementById('sun');
+				var moon = document.getElementById('moon');
+				
+				sun.onclick = function()
+				{
+					box1.style.display = 'block';
+					box2.style.display = 'block';
+					box3.style.display = 'none';
+					box4.style.display = 'block';
+					box5.style.display = 'none';
+				}
+				moon.onclick = function()
+				{
+					box1.style.display = 'none';
+					box2.style.display = 'none';
+					box3.style.display = 'block';
+					box4.style.display = 'block';
+					box5.style.display = 'block';
+				}
+				// box2.offsetLeft = box1w - box2w + 'px';
+				// box2.style.left = '100px';
+				// alert(getComputedStyle(box1,null)["width"]);
+				// alert(box1.style.width); 
+				// box2.style.backgroundColor = 'yello;
+				// alert(parseIntbox1.style.width));
+				// box2.styleeft = 
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			
+		</div>
+		<div id="box2">
+			
+		</div>
+		<div id="box3">
+			
+		</div>
+		<div id="box4">
+			
+		</div>
+		<div id="box5">
+			
+		</div>
+		<div id="box6">
+			<i id="flag" class="fa fa-sun-o" aria-hidden="true"></i><button id="sun" type="button"style="width: 100px; margin: 9px;z-index: 100;border: hidden;">白天</button>
+			<br>
+			<i id="flag" class="fa fa-moon-o" aria-hidden="true"></i><button id="moon" type="button"style="width: 100px; margin: 10px; z-index: 100;border: hidden;">黑夜</button>
+		</div>
+	</body>
+</html>

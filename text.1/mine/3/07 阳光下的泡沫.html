@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html body{
+				height: 100%;
+				overflow: hidden;
+				background-color: pink;
+			}
+			#cancas{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				/* border: #000000 solid 1px; */
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="cancas" width="400" height="400">您的浏览器版本太低，请升级版本</canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var canvas = document.querySelector('#cancas');
+			var ctx = canvas.getContext('2d');
+			//arr里边存放随机圆的相关信息
+			var arr = [];
+			
+			setInterval(function(){
+				ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+				console.log(arr);
+				
+				for(i = 0 ; i < arr.length ; i++)
+				{
+					if(arr[i].alp < 0)
+					{
+						arr.splice(i,1);
+					}
+					arr[i].r++;
+					
+					arr[i].alp -= 0.01;
+					// arr[i].alp = arr[i].alp - 0.01;
+					// console(arr[1].alp);
+				}
+				for(i = 0 ; i < arr.length ; i++)
+				{
+					ctx.save();
+					// ctx.fillStyle = 'lightcoral'
+					ctx.fillStyle = 'rgba('+ arr[i].red +','+ arr[i].green +','+ arr[i].blue +','+ arr[i].alp+')';
+					ctx.beginPath();
+					ctx.arc(arr[i].x,arr[i].y,arr[i].r,0,2*Math.PI);
+					ctx.fill();
+					ctx.restore();
+				}
+			},1000/60)
+			
+			
+			setInterval(function(){
+				var x = Math.random() * canvas.width;
+				var y = Math.random() * canvas.height;
+				var r = 10;
+				var red = Math.round(Math.random() * 255);
+				var green = Math.round(Math.random() * 255);
+				var blue = Math.round(Math.random() * 255);
+				var alp = 1;
+				arr.push({
+					x:x,
+					y:y,
+					r:r,
+					red:red,
+					green:green,
+					blue:blue,
+					alp:alp,
+				})
+			},300)
+		}
+		
+		
+		// setInterval(function(){
+			
+		// },1000/60)
+		
+		// var ctx = canvas.getContext('2d');
+		// ctx.beginPath();
+		// ctx.arc(100,100,50,0,2*Math.PI);
+		// ctx.strokeStyle = 'skyblue';
+		// ctx.stroke();
+		// ctx.closePath();
+	</script>
+</html>

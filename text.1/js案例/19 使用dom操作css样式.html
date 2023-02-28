@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 200px;
+				height: 200px;
+				background-color: #0000FF;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				var btn = document.getElementById('btn');
+				var box = document.getElementById('box1');
+				var btn02 = document.getElementById('btn02');
+				btn.onclick = function()
+				{
+					
+					box.style.width = "300px";
+					box.style.height = '300px';
+					//如果在scri中修改的css样式中含有-，比如background-color
+					//则将-取消，然后将-后的字母大写
+					//比如应改为backgroundColor
+					
+					box.style.backgroundColor = 'yellowgreen';
+					
+					/*我们通过style属性设置的样式都是内联样式，而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示
+					但是如果在样式中写了!important，则此时样式会有最高的优先级，
+					即使通过JS也不能覆盖该样式，此时将会导致JS修改样式失效
+					所以尽量不要为样式添加!important */
+					// alert('hello');
+				}
+				btn02.onclick = function()
+				{
+					//通过style属性读取的都是内联样式
+					//在css中设置的样式读取不到
+					alert(box.style.width)
+					
+					/*获取元素当前显示的样式   只有ie浏览器支持该方法
+						语法：元素.currentStyle.样式名
+						它可以读取当前元素正在显示的样式
+						如果元素没有设置样式，则显示默认值 */
+						
+					// alert(box.currentStyle.width);
+					
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn">点我一下</button>
+		<br><br>
+		<button type="button" id="btn02">点我点我</button>
+		<br><br>
+		<div id="box1">
+		</div>
+	</body>
+</html>

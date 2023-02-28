@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				overflow: hidden;
+				height: 100%;
+			}
+			html,body,h1,h2,h3,h4,h5,h6,p,ul,li{
+				margin: 0;
+				padding: 0;
+				font: 14px;
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				display: block; 					/*防止异常行为*/
+			}
+			img{
+				display: block;
+			}
+			.clearfix{*zoom: 1;} 				/*清除浮动*/
+			.clearfix::after{content: '';display: block;clear: both;}
+			#head{
+				/* z-index: 100; */
+				
+				background-color: white !important;
+			}
+			#head .headMain{
+				width: 1100px;
+				height: 80px;
+				background-color: white;
+				margin: 0 auto;
+				position: relative;
+			}
+			#head .headMain .logo{
+				float: left;
+				margin: 30px;
+			}
+			#head .headMain .nav{
+				float: right;
+				margin: 50px;
+			}
+			#head .headMain .nav .list li{
+				float: left;
+				margin-left: 40px;
+				position: relative;
+			}
+			#head .headMain .nav .list .up{
+				color: #000000;
+				position: absolute;
+				width: 0;
+				overflow: hidden;
+				transition: 1s width;
+			}
+			#head .headMain .nav .list li:hover .up{
+				width: 100%;
+			}
+			#head .headMain .arrow{
+				/* background-color: #000000; */
+				position: absolute;
+				left: 50%;
+				bottom: -11px;
+				transition: 1s left;
+			}
+			
+			#content{
+				background-color: gray;
+				height: 400px;
+			}
+			#content .list li{
+				position: relative;
+			}
+			#content .list li div{
+				height: 520px;
+				width: 1100px;
+				background-color: skyblue;
+				/* margin: 0 auto; */
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="warp">
+			<header id="head">
+				<div class="headMain">
+					<h1 class="logo">
+						<a href="javascript:;">
+							<img src="img/logo.png" >
+						</a>
+					</h1>
+					<nav class="nav">
+						<ul class="list clearfix">
+							<li>
+								<a href="javascript:;">
+									<div class="up">
+										<img src="img/home_gruen.png" >
+									</div>
+									<div class="down">
+										<img src="img/home.png" >
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">
+										Crouse
+									</div>
+									<div class="down">
+										Crouse
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">
+										Works
+									</div>
+									<div class="down">
+										Works
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">
+										About
+									</div>
+									<div class="down">
+										About
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="up">
+										Team
+									</div>
+									<div class="down">
+										Team
+									</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="arrow">
+						<img src="img/menuIndicator.png" >
+					</div>
+				</div>
+			</header>
+			<section id="content">
+				<ul class="list">
+					<li class="home">
+						<div>Home</div>
+					</li>
+					<li class="crouse">
+						<div>Crouse</div>
+					</li>
+					
+					<li class="work">
+						<div>Work</div>
+					</li>
+					
+					<li class="about">
+						<div>About</div>
+					</li>
+					
+					<li class="team">
+						<div>Team</div>
+					</li>
+			</section>
+		</section>
+	</body>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var arrowE1 = document.querySelector('#head .headMain .arrow');
+			var liNode = document.querySelectorAll('#head .headMain .nav .list li');
+			var UpNode = document.querySelectorAll('#head .headMain .nav .list .up');
+			var firstLinode = liNode[0];
+			var firstupnode = firstLinode.querySelector('.up');
+			
+			var head = document.querySelector('#head');
+			var content = document.querySelector('#content');
+			var cliNode = document.querySelectorAll('#content .list li');
+			
+			contentBind()
+			function contentBind(){
+				content.style.height = document.documentElement.clientHeight - head.offsetHeight +'px';
+				for(var i = 0;i < cliNode.length;i++)
+				{
+					cliNode[i].style.height = document.documentElement.clientHeight - head.offsetHeight +'px';
+				}
+			}
+			
+			
+			headBind(); 				//头部
+			function headBind(){
+				firstupnode.style.width = '100%';						//注意
+				// console.log(firstnode.offsetLeft);
+				arrowE1.style.left = firstLinode.offsetLeft + firstLinode.offsetWidth / 2 - arrowE1.offsetWidth / 2 + 'px';
+				
+				for(i = 0;i < liNode.length;i++)
+				{
+					liNode[i].index = i;
+					liNode[i].onclick = function()
+					{
+						move(this.index);
+					}
+				}
+				function move(index){
+					for(var i = 0;i < liNode.length;i++)
+					{
+						UpNode[i].style.width = '';
+					}
+					UpNode[index].style.width = '100%' ;
+					arrowE1.style.left = liNode[index].offsetLeft + liNode[index].offsetWidth / 2 - arrowE1.offsetWidth / 2 + 'px';
+				}
+			}
+		}
+	</script>
+</html>

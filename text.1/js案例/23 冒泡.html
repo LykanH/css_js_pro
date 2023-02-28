@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 300px;
+				height: 200px;
+				background-color: #008000;
+			}
+			#box1 #span1{
+				background-color: #00FFFF;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				var box1 = document.getElementById('box1');
+				var span1 = document.getElementById('span1');
+				// var body = document.getElementsByTagName('body')[0];
+				box1.onclick = function(event)
+				{
+					//取消冒泡
+					event = event||window.event;
+					
+					alert('我是box1的响应函数')
+					event.cancelBubble = true;
+				}
+				span1.onclick = function(event)
+				{
+					event = event||window.event;
+					alert('我是span的响应函数')
+					event.cancelBubble = true;
+				}
+				document.body.onclick = function()
+				{
+					alert('我是body的响应函数')
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			我是一个小小的div
+			<span id="span1">
+				我是span
+				
+			</span>
+			
+		</div>
+	</body>
+</html>

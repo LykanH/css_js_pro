@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图片切换</title>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#box1{
+				width: 300px;
+				height: 350px;
+				background-color: darkviolet;
+				margin: 50px auto;
+				text-align: center;
+				padding: 10px;
+				
+			}
+
+		</style>
+		
+		
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				
+				
+				var btn01 = document.getElementById('btn01');
+				var btn02 = document.getElementById('btn02');
+				
+				var imgarr = ["../千锋实训课/aaa/thumb/mmexport1645342474173.jpg.JPG","../千锋实训课/aaa/thumb/mmexport1645342582795.jpg.JPG","../千锋实训课/aaa/mmexport1645342715764.jpg","../千锋实训课/img/img2.jpg","../千锋实训课/img/img3.jpg"];
+				
+				var count = 0;
+				
+				var text = document.getElementById('text');
+				
+				text.innerHTML = '一共'+imgarr.length+'张图片，这是第'+(count+1)+'张'
+				
+				//获取img标签
+				var img = document.getElementsByTagName('img')[0];
+				btn01.onclick = function()
+				{
+					count--;
+					// alert('点我一下试试~~');
+					
+					if(count < 0)
+					{
+						count = imgarr.length-1;
+					}
+					img.src = imgarr[count];
+					text.innerHTML = '一共'+imgarr.length+'张图片，这是第'+(count+1)+'张'
+				}
+				btn02.onclick = function()
+				{
+					count++;
+					// alert('下一张');
+					if(count > imgarr.length-1)
+					{
+						count = 0;
+					}
+					img.src = imgarr[count];
+					
+					text.innerHTML = '一共'+imgarr.length+'张图片，这是第'+(count+1)+'张'
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<p id="text"></p>
+			<img src="../千锋实训课/aaa/thumb/mmexport1645342474173.jpg.JPG" width="300px" >
+			<!-- <img src="../千锋实训课/aaa/19.jpg" width="300px" > -->
+			<!-- <img src="../千锋实训课/aaa/thumb/mmexport1645342582795.jpg.JPG" > -->
+			<!-- <img src="../千锋实训课/aaa/mmexport1645342715764.jpg" > -->
+			<!-- <img src="../千锋实训课/img/img2.jpg" > -->
+			<!-- <img src="../千锋实训课/img/img3.jpg" > -->
+			<button id="btn01" type="button"style="width: 50px;height: 25px;">上一张</button>
+			<button id="btn02" type="button"style="width: 50px;height: 25px;">下一张</button>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                /* 去掉列表的小点 */
+                list-style: none;
+            }
+            #box{
+                width: 950px;
+                height: 520px;
+                background-color: pink;
+                margin: auto;
+            }
+            h2{
+                height: 70px;
+                /* 左右居中 */
+                text-align: center;
+                /* 背景颜色 */
+                background-color: #FF0000;
+                /* 行高,当行高和容器高度一致的时候,可以实现垂直居中效果 */
+                line-height: 70px;
+                /* 颜色 */
+                color: white;
+                /* 加粗 */
+                font-weight: bolder;
+                /* 字体 */
+                font-family: '楷体';
+                /* 字体大小 */
+                font-size: 45px;
+            }
+            .big_pic{
+                width: 720px;
+                height: 430px;
+                background-color: aqua;
+                /* 超出边界隐藏 */
+                overflow: hidden;
+                /* 浮动 */
+                float: left;
+                margin: 5px 8px;
+            }
+            
+            /* 处理小的区域 */
+            .small_pic{
+                width: 210px;
+                height: 435px;
+                background-color: #FFFF00;
+                float: right;
+                /* 超出边界不可见,增加滚动条 */
+                overflow: scroll;
+                margin-top: 8px;
+            }
+            /* 控制图片 */
+            .big_pic img{
+                /* 让图片大小刚好适合父容器宽 */
+                width: 100%;
+                border: 2px solid white;
+            }
+            /* 小图片 */
+            .small_pic img{
+                width: 100%;
+                border: 2px solid white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <h2>我的朋友们</h2>
+            <div class="big_pic">
+                <ul>
+                    <!-- ./ 当前目录
+                        ../ 返回上一级目录
+                     -->
+                    <li id="pic1"><img src="../img/img1.jpg" ></li>
+                    <li id="pic2"><img src="../img/img2.jpg" ></li>
+                    <li id="pic3"><img src="../img/img3.jpg" ></li>
+                    <li id="pic4"><img src="../img/img4.jpg" ></li>
+                    <li id="pic5"><img src="../img/img5.jpg" ></li>
+                    <li id="pic6"><img src="../img/img6.jpg" ></li>
+                    <li id="pic7"><img src="../img/img7.jpg" ></li>
+
+                </ul>
+            </div>
+            <!-- 超链接的锚点用法,在href中写#id名称,可以自定定位对应id名称的元素焦点 -->
+            <div class="small_pic">
+                <li><a href="#pic1"><img src="../img/img1.jpg" ></a></li>
+                <li><a href="#pic2"><img src="../img/img2.jpg" ></a></li>
+                <li><a href="#pic3"><img src="../img/img3.jpg" ></a></li>
+                <li><a href="#pic4"><img src="../img/img4.jpg" ></a></li>
+                <li><a href="#pic5"><img src="../img/img5.jpg" ></a></li>
+                <li><a href="#pic6"><img src="../img/img6.jpg" ></a></li>
+                <li><a href="#pic7"><img src="../img/img7.jpg" ></a></li>
+            </div>
+        </div>
+    </body>
+</html>

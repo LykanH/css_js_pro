@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				height: 100px;
+				width: 100px;
+				background-color: #B8DAFF;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function()
+			{
+
+				var btn = document.getElementById('btn');
+				var btn01 = document.getElementById('btn01');
+				var box1 = document.getElementById('box1');
+				var timer;
+				
+				btn.onclick = function()
+				{
+					move(box1,10,800);
+					// clearInterval(timer);
+					// timer = setInterval(function(){
+					// 	var oldleft = box1.offsetLeft;
+						
+					// 	var newleft = oldleft + 19;
+					// 	if(newleft >= 800)
+					// 	{
+					// 		newleft = 800;
+					// 	}
+					// 	box1.style.left = newleft + 'px';
+						
+						
+					// 	if(newleft >= 800)
+					// 	{
+					// 		clearInterval(timer);
+					// 	}
+					// },30)
+					
+					
+					// alert(oldleft);
+					// alert(newleft);
+					
+					// box1.offsetLeft = newleft;
+				}
+				btn01.onclick = function()
+				{
+					move(box1,10,0);
+					// clearInterval(timer);
+					// timer = setInterval(function(){
+					// 	var oldleft = box1.offsetLeft;
+						
+					// 	var newleft = oldleft - 19;
+					// 	if(newleft <= 0)
+					// 	{
+					// 		newleft = 0;
+					// 	}
+					// 	box1.style.left = newleft + 'px';
+						
+						
+					// 	if(newleft <= 0)
+					// 	{
+					// 		clearInterval(timer);
+					// 	}
+					// },30)
+				}
+			}
+			
+			var timer;
+			//参数
+			//		-obj:要执行动画的对象
+			//		-speed:移动速度(正值向右移，负值向左移)    改进后可以自动判断左右移动
+			//		-tageter:目标位置
+			function move(obj,speed,tageter)
+			{
+				//改进
+				var posi = obj.offsetLeft;
+				if(posi > tageter)
+				{
+					speed = -speed;
+				}
+				clearInterval(timer);
+				timer = setInterval(function(){
+					var oldleft = obj.offsetLeft;
+					
+					var newleft = oldleft + speed;
+					if((speed < 0 && newleft <= tageter) || (speed > 0 && newleft >= tageter))
+					{
+						newleft = tageter;
+					}
+					box1.style.left = newleft + 'px';
+					
+					
+					if(newleft == tageter)
+					{
+						clearInterval(timer);
+					}
+				},30)
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn">点我方块向右移动</button>
+		<button type="button" id="btn01">点我方块向左移动</button>
+		<br><br>
+		<div id="box1">
+				
+			</div>
+		<div id="box2" style="width:0; height: 1000px ;border-right: 1px solid black;position: absolute; margin-top: 0;left: 800px;top: 0;">
+		</div>
+	</body>
+</html>

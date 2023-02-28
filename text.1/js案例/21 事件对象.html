@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#arediv{
+				height: 50px;
+				width: 300px;
+				border: 1px green solid;
+				margin-bottom: 10px;
+			}
+			#showmsg{
+				width: 300px;
+				height: 20px;
+				border: 1px green solid;
+			}
+		</style>
+			
+			
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				/*鼠标在arediv中移动的时候，在showms中显示鼠标的坐标
+				*/
+			   //获取两个div
+			   var arediv = document.getElementById('arediv');
+			   var showmsg = document.getElementById('showmsg');
+			   
+			   //给大div绑定一个鼠标移动属性
+			   arediv.onmousemove = function(event)
+			   {
+				   // alert('hello');
+				   //从形参event中获取所有关于鼠标坐标 和点击时间的参数
+				   // alert(event);
+				   
+				   /*clientX 可以获取鼠标指针的水平坐标
+				   clientY 可以获取鼠标指针的垂直坐标*/
+				   
+				   var x = event.clientX;
+				   var y = event.clientY;
+				   // alert(x+"  "+y);
+				   showmsg.innerHTML = "x="+x+','+'y='+y;
+			   }
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="arediv">
+			
+			
+		</div>
+		<div id="showmsg">
+			
+		</div>
+	</body>
+</html>

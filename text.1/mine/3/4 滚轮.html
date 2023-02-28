@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			/* html body{
+				height: 100%;
+				overflow: hidden;
+			} */
+			#box1{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var box1 = document.querySelector('#box1');
+			if(box1.addEventListener)
+			{
+				//火狐浏览器绑定滚轮事件
+				box1.addEventListener('DOMMouseScroll',fn);
+			}
+			// IE chrome浏览器绑定滚轮事件
+			document.onmousewheel = fn;
+			
+			function fn(event)
+			{
+				event = event || window.event;
+				dir = ';'
+				if(event.wheelDelta)
+				{
+					// event.wheelDelta 在IE和chrome中判断滚轮滚动方向  向上120  向下-120
+					dir = event.wheelDelta > 0 ? 'up' : 'down';
+				}
+				if(event.detail)
+				{
+					//event.detail 是在火狐浏览器中判断滚轮滚动方向 向上：-3  向下 ：+3
+					dir = event.detail < 0 ? 'up' : 'down';
+				}
+				switch(dir)
+				{
+					case 'up':
+					box1.style.height = box1.offsetHeight - 10 +'px';
+					break;
+					case 'down':
+					box1.style.height = box1.offsetHeight + 10 +'px';
+					break;
+				}
+			}
+		}
+	</script>
+</html>

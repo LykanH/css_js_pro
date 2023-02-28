@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>正则表达式</title>
+		<script type="text/javascript">
+			
+			// RegExp('正则表达式','匹配模式');     
+			//匹配模式中
+					// --'i':忽略大小写;
+					// --'g':全局匹配模式;
+			// var reg = new RegExp('ab','i');
+			var reg = /ab/i;    //与上边创建正则表达式效果一样
+			var a = 'Ab c';
+			
+			result = reg.test(a);
+			
+			// alert(result);
+			
+			
+			// var reg1 = /a|b/;     //检查字符串中含有a或者b
+			var reg1 = /[a-z]/;        //该方法也是或的意思  和上边效果一样
+			
+			//其中[a-z]表示所有的小写字母其中之一
+			//[A-Z]表示任意的大写字母
+			//[A-z]表示任意的字母  无论大小写
+			//[^ ]  除了的意思
+			//[^ab]: 表示不包含a或者b则返回true
+			// /^a/ 表示存在a  且以a为开头
+			// /a$/ 表示以a结尾
+			
+			//console.log(reg1.test('c'));
+			
+			
+			//创建一个正则表达式看是否含有aaa
+			var reg2 = /a{3}/;
+			
+			//量词
+			//a{3}表示a连续出现3次
+			//a{m,n} 表示a出现m-n次
+			//a{m,n}表示m次以上
+			//  /a+/表示至少一个 相当于/a{1,}/
+			//  /a*/表示0个或多个 相当于/a{0,}/
+			
+			console.log(reg2.test('aaabc'));
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

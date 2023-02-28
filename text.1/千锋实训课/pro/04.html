@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		    * {
+		        margin: 0;
+		        padding: 0;
+		        list-style: none;
+		    }
+		
+		    #box {
+		        width: 1200px;
+		        height: 400px;
+		        background-color:white;
+		        margin:10px auto;
+				/* border: 1px solid black; */
+				position: relative;
+		    }
+			.box_sencond{
+				width: 1200px;
+				height: 300px;
+				/* background:lavender ; */
+				/* border: 1px solid black; */
+				position: absolute;
+				background-color: white;
+				left:1px ;
+				top: 56px;
+			/* 	margin-right: 10px; */
+			}
+		   .out_windows{
+		        width: 800px;
+		        height: 100%;
+				background-color: white;
+		        /* background-color: #800080; */
+		        margin: auto;
+				margin-left: 150px;
+		    }
+		    .list_title{
+		        width: 150px;
+		        height: 50px;
+		        float: left;
+		        /* background-color: #FFA500; */
+		        line-height: 70px;
+		        text-align: center;
+		        margin-left: 50px;
+		        color: black;
+		        font-weight: bolder;
+		        font-size: 15px;
+				cursor: pointer;
+				text-decoration: none;
+		    }
+			.list_title:hover{
+				color: aqua;
+			}
+			a{
+				text-decoration: none;
+				cursor: pointer;
+				color: black;
+			}
+			/* #box_sencond .contens_list{
+				width: 1200px;
+				height: 300px;
+				margin: 25px auto;
+			} */
+			 .contens{
+				width: 350px;
+				height:120px ;
+				/* border: 1px solid black; */
+				float: left;
+				margin: 10px auto;
+				margin-left: 30px;
+				background:azure;
+				border-radius: 15px;
+				cursor: pointer;
+			}
+			 .information{
+				width:70%;
+				height: 120px;
+				float:right;
+				margin: 0 auto;
+				border-left: 1px solid aquamarine;
+			}
+			 .contens:hover{
+				border-radius: 15px;
+				/* 图片掩盖住了两个li的圆角，为了显示圆角，设置超出li部分隐藏 */
+				/* 添加阴影 */
+				box-shadow: 10px 8px 15px #000000;
+				background: orange;
+			}
+			.time{
+				width:30px;
+				height: 80px;
+				/* margin-left: 10px; */
+				float: left;
+				font-family: 宋体;
+				text-align: center;
+				font-size: 20px;
+				margin-top:20px;
+				color: royalblue;
+				}
+			.link:hover{
+				color: aqua;
+			}
+			.information_title{
+				 height: 30px;
+				text-align: center;
+				color: black;
+				font-size: 16px;
+				margin-top: -9px;
+				/* top: 1px; */
+			}
+			.information_contens{
+				text-align: center;
+				color: rgba(0,0,0,0.3);
+				font-size: 12px;
+				height: 40Px;
+				margin-left: 0px;
+				margin-top: 20px;
+				line-height: 30px;
+			}
+			.second_link{
+				display: block;
+				width: 350px;
+				height: 120px;
+				text-decoration: none;
+				cursor: pointer;
+				float: left;
+				/* border: 1px solid black; */
+				margin: 15px 10px;
+				border-radius: 15px;
+				background: aliceblue;
+			}
+			
+			.second_link:hover{
+				box-shadow: 10px 8px 15px #000000;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.list_title:nth-child(3) .box_zhaobiao{
+				display: none;
+			}
+			.list_title:nth-child(3):hover .box_zhaobiao{
+				display: block ;
+				color: red;
+			}
+			.list_title:nth-child(2) .box_jiangzuo{
+				display:none;
+			}
+			.list_title:nth-child(2):hover .box_jiangzuo{
+				display:block;
+			} */
+		 	.list_title:nth-child(2) .link{
+				display: ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+				<ul class="out_windows">
+					
+						<li class="list_title">
+							<a href="http://www.baidu.com" target="ifr" class="link">通知公告</a>
+							<div class="box_sencond box_tongzhi">
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.23</div>
+											<div class="information">
+												<h2 class="information_title">关于开展2022年江西省基础...</h2>
+												<p class="information_contens">各二级学院:现将江西省教育厅教学教材研究室《关于做好2022年江西省基...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.22</div>
+											<div class="information">
+												<h2 class="information_title">关于申报江西省科协2022年...</ div>
+<ldiv>
+</h2>
+												<p class="information_contens">各有关单位:近日接到江西省科协传达的《关于申报江西省科协2022年决策...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">关于开展第二届江西省高校...</h2>
+												<p class="information_contens">为迎接第27个“世界读书日”，深入开展全民阅读活动,提高江西地区各高...</p>
+											</div>
+									</a>
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.20</div>
+											<div class="information">
+												<h2 class="information_title">关于举办“终极幻境杯”第...</h2>
+												<p class="information_contens">各单位、各部门:根据教育部、江西省教育厅相关文件精神，为进一步激发...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.19</div>
+											<div class="information">
+												<h2 class="information_title">关于参加“百万网民学法律...</h2>
+												<p class="information_contens">各学院、各单位：为落实教育教育部《全国教育系统开展法治宣传教育的第...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.18</div>
+											<div class="information">
+												<h2 class="information_title">关于做好2022届本科生毕业...</h2>
+												<p class="information_contens">各二级学院：根据学校的要求，图书馆将于2022年4月份开始对本校2022届本...</p>
+											</div>
+									</a>
+									
+							</div>
+						</li>
+						
+						<li class="list_title"><a href="http://www.baidu.com" target="ifr" class="link">讲座公告</a>
+							<div class="box_sencond box_jiangzuo"></div>
+							
+						</li>
+					
+					
+						<li class="list_title"><a href="http://www.baidu.com" target="ifr" class="link">招标公告</a>
+							<div class="box_sencond box_zhaobiao">
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">江西首信招标咨询有限公司...</h2>
+												<p class="information_contens">项目概况九江学院紫薇园校区芙蓉小镇整体经营权承租商遴选项目的潜在投...</p>
+											</div>
+									</a>
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">九江学院绿地承包管理项目...</h2>
+												<p class="information_contens">九江学院绿地承包管理项目（二标段）经九院党办抄字【2021】40号文批准...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">九江学院绿地承包管理项目...</h2>
+												<p class="information_contens">九江学院绿地承包管理项目（二标段）于2022年1月开始招标工作，并于2022...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">九江学院逸夫图书馆改造项...</h2>
+												<p class="information_contens">九江学院逸夫图书馆改造项目经九发改社会字【2021】579号文批准建设，现...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">九江学院智能智造工程实训...</h2>
+												<p class="information_contens">九江学院智能智造工程实训（实验）中心项目设计项目（第二次）已经九发...</p>
+											</div>
+									</a>
+									
+									<a href="http://www.baidu.com" target="ifr" class="link second_link">
+											<div class="time">3.21</div>
+											<div class="information">
+												<h2 class="information_title">九江学院智能智造工程实训...</h2>
+												<p class="information_contens">九江学院智能智造工程实训（实验）中心项目设计项目于2022年01月18日上...</p>
+											</div>
+									</a>
+							</div>
+						</li>
+					<a href="http://www.baidu.com" target="ifr" class="link">
+						<li class="list_title">更多</li>
+					</a>
+				</ul>
+		</div>
+	</body>
+</html>

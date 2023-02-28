@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				position: relative;
+				top: 50px;
+				left: 400px;
+				text-align: center;
+				
+			}
+			#box2{
+				margin: 80px 0px 0px 0px ;
+				width: 300px;
+				text-align: center;
+				line-height: 30px;
+				position: relative;
+				/* top: 280px; */
+				left: 500px;
+				font-size: 20px;
+			}
+			/* #box2 p{
+				text-align: center;
+			} */
+		</style>
+		<script type="text/javascript">
+			
+			function delA()
+				{
+					// alert(this)
+					var parent = this.parentNode.parentNode;
+					
+					//获取员工名字的两种方法；
+					// var name = parent.getElementsByTagName('td')[0];
+					var name = parent.firstElementChild.innerHTML;
+					// alert(name);
+					// alert(parent.innerText);
+					flag = confirm('确认删除'+name+'嘛？')
+					if(flag == true)
+					{
+						parent.parentNode.removeChild(parent);
+					}
+					return false;
+				}
+			
+			
+			//获取所有超链接
+			window.onload = function()
+			{
+				var a = document.getElementsByTagName('a');
+				
+				for(var i = 0;i < a.length;i++)
+				{
+					a[i].onclick = delA;
+				}
+				
+				//添加员工功能改进
+				var add = document.getElementById('addEmpButton');
+				var name = document.getElementById('empname').value;
+				var email = document.getElementById('email').value;
+				var salary = document.getElementById('salary').value;
+				
+				add.onclick = function()
+				{
+					// alert(name);
+					//创建一个tr
+					var tr = document.createElement('tr');
+					
+					//设置tr的内容
+					tr.innerHTML = '<td>'+name+'</td>'+
+									'<td>'+email+'</td>'+
+									'<td>'+salary+'</td>'+
+									'<td><a href='javascript:;'>delete</a></td>';
+					
+									// '<td>'+name+'</td>'+
+									// '<td>'+email+'</td>'+
+									// '<td>'+salary+'</td>'+
+									// '<td><a href = 'javascript:;'>delete</a></td>';
+					//获取table
+					var table = document.getElementById('employeeTable');
+					var tbody = table.getElementsByTagName('tbody')[0];
+					tbody.appendChild(tr);
+				}
+				
+				//添加员工功能
+				/*var add = document.getElementById('addEmpButton');
+				var name = document.getElementById('empname');
+				var email = document.getElementById('email');
+				var salary = document.getElementById('salary');
+				add.onclick = function()
+				{
+					//创建超链接框
+					var delTex = document.createTextNode("delete")
+					var td_4 = document.createElement('td');
+					var a = document.createElement('a');
+					
+					a.appendChild(delTex)
+					a.href = 'javascript:;'
+					td_4.appendChild(a);
+					
+					a.onclick = delA;
+					// tr.appendChild(td_4);
+					// alert('恭喜你添加成功！');
+					var newname = document.createTextNode(name.value)
+					var newemail = document.createTextNode(email.value);
+					var newsalary = document.createTextNode(salary.value);
+					var tr = document.createElement('tr');
+					var td_1 = document.createElement("td");
+					var td_2 = document.createElement("td");
+					var td_3 = document.createElement("td");
+					td_1.appendChild(newname);
+					td_2.appendChild(newemail);
+					td_3.appendChild(newsalary);
+					tr.appendChild(td_1);
+					tr.appendChild(td_2);
+					tr.appendChild(td_3);
+					tr.appendChild(td_4);
+					
+					var table = document.getElementById('employeeTable');
+					//获取table中的tbody
+					var tbody = table.getElementsByTagName('tbody')[0];
+					tbody.appendChild(tr);
+					
+					
+					
+				}*/
+			}
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<div id="box1">
+			<table id="employeeTable" border="" cellspacing="0px" cellpadding="10">
+				<tr>
+					<th width="100px">Name</th>
+					<th width="150px">Email</th>
+					<th width="100px">Salary</th>
+					<th width="100px">&nbsp;&nbsp;</th>
+				</tr>
+				<tr>
+					<td>qwe</td>
+					<td>qweeq@qq.com</td>
+					<td>8000</td>
+					<td><a href="delete_01">delete</a></td>
+				</tr>
+				<tr>
+					<td>asd</td>
+					<td>asdff@qq.com</td>
+					<td>9000</td>
+					<td><a href="delete_02">delete</a></td>
+				</tr>
+				<tr>
+					<td>uyi</td>
+					<td>yuioo@qq.com</td>
+					<td>10000</td>
+					<td><a href="delete_03">delete</a></td>
+				</tr><tr>
+					<td>ghj</td>
+					<td>jhgkj@qq.com</td>
+					<td>20000</td>
+					<td><a href="delete_04">delete</a></td>
+				</tr>
+			</table>
+		</div>
+		<div id="box2">
+			<p>添加新员工</p>
+			<tr>
+				<td class="word">name:</td>
+				<td class="inp"><input type="text" name="empname" id="empname" placeholder="例：jhon"/></td>
+			</tr><br>
+			<tr>
+				<td class="word">email:</td>
+				<td class="inp"><input type="text" name="email" id="email" placeholder="123"/></td>
+			</tr><br>
+			<tr>
+				<td class="word">salary:</td>
+				<td class="inp"><input type="text" name="salary" id="salary"/></td>
+			</tr><br>
+			<tr>
+				<td>
+					<button id="addEmpButton" value="abc" style="height: 30px;">submit</button>
+					</td>
+			</tr>
+		</div>
+		
+	</body>
+</html>

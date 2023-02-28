@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				var btn01 = document.getElementById('btn01');
+				//为btn01绑定单机响应函数
+				/*btn01.onclick = function()
+				{
+					alert('1');
+				}
+				//通过对象.事件 = 函数的形式绑定响应函数
+				//为btn01绑定第二个单机响应函数
+				//但是此时只有第二个会执行（后边的会覆盖掉前边的响应函数）
+				
+				btn01.onclick = function()
+				{
+					alert('2');
+				}*/
+				
+				
+				/*addEventListener(事件的字符串（不要on），回调函数，当事件触发时该回调函数会被调用，是否捕获
+				阶段触发事件，需要一个布尔值，一般都传false)*/
+				
+				//使用 addEventListener()可以为一个事件绑定多个响应函数
+				btn01.addEventListener('click',function(){
+					alert('1');
+				},false);
+				btn01.addEventListener('click',function(){
+					alert('2');
+				},false);
+				btn01.addEventListener('click',function(){
+					alert('3');
+				},false);
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn01">点我一下</button>
+	</body>
+</html>

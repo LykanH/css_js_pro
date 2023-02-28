@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定时调用</title>
+		<style type="text/css">
+			
+		</style>
+		<script type="text/javascript">
+			// document.write('1');
+			window.onload = function()
+			{
+				var count = document.getElementById('count');
+				
+				//如果希望一个程序一段时间执行一次，可以使用定时调用
+				// for(var i = 0;i<3;i++)
+				// {
+				// 	// alert('hello');
+				// 	count.innerHTML = i;
+					
+				// }
+				// count = 1;
+				// setInterval
+				//   -定时调用，每隔一段时间调用一次
+				//		-参数：   1.回调函数  2.每次调用间隔时间单位为ms
+				var num = 0;
+				var time = setInterval(function(){
+					count.innerHTML = num++;
+					if(num == 11)
+					{
+						clearInterval(time);
+					}
+				},1000);
+				// console.log(time);
+				
+				//clearInterval() 可以用来关闭一个定时器
+				
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1 id="count"></h1>
+	</body>
+</html>

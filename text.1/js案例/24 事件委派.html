@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var alla = document.getElementsByTagName('a');
+			var btn = document.getElementById('btn');
+			var ul = document.getElementsByTagName('ul')[0];
+			btn.onclick = function()
+			{
+				var li = document.createElement('li');
+				li.innerHTML = '<a href="javascript:;" class="link">我是新添加的超链接</a>'
+				var ul = document.getElementsByTagName('ul')[0];
+				ul.appendChild(li);
+			}
+			
+			//给各个超链接添加响应函数
+			//for循环只能给刚上来界面上存在的超链接添加单击响应函数
+			/*  for(var i = 0; i < alla.length;i++)    
+			{
+				alla[i].onclick = function()
+				{
+					alert('你点了我~');
+				}
+			} */
+			ul.onclick = function(event)
+			{
+				// alert(event.target)
+				if(event.target.className == 'link')
+				{
+					alert('你点了我~');
+				}
+			}
+			
+		}
+		
+	</script>
+	<body>
+		<button type="button" id="btn">添加新超链接</button>
+		<ul>
+			<li><a href="javascript:;" class="link">我是第一个超链接</a></li>
+			<li><a href="javascript:;" class="link">我是第二个超链接</a></li>
+			<li><a href="javascript:;" class="link">我是第三个超链接</a></li>
+		</ul>
+	</body>
+</html>

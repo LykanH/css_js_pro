@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html body{
+				height: 100%;
+				overflow: hidden;
+				background-color: pink;
+			}
+			#cancas{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				/* border: #000000 solid 1px; */
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="cancas" width="150" height="400">您的浏览器版本太低，请升级版本</canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload = function()
+		{
+			var canvas = document.querySelector('#cancas');
+			var ctx = canvas.getContext('2d');
+			//arr里边存放随机圆的相关信息
+			var arr = [];
+			
+			setInterval(function(){
+				ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+				console.log(arr);
+				
+				// for(i = 0 ; i < arr.length ; i++)
+				// {
+				// 	if(arr[i].alp < 0)
+				// 	{
+				// 		arr.splice(i,1);
+				// 	}
+				// 	arr[i].r++;
+					
+				// 	arr[i].alp -= 0.01;
+				// 	// arr[i].alp = arr[i].alp - 0.01;
+				// 	// console(arr[1].alp);
+				// }
+				
+				// deg++;
+				
+				// box1.style.left = startX + (deg*Math.PI/180) * stepX +'px';
+				// box1.style.top = startY + Math.sin((deg*Math.PI/180)) * stepY + 'px';
+				
+				for(i = 0 ; i < arr.length ; i++)
+				{
+					arr[i].deg += 7;
+					arr[i].x = arr[i].startX + Math.sin((arr[i].deg*Math.PI/180)) * arr[i].step *2 ;
+					arr[i].y = arr[i].startY - (arr[i].deg*Math.PI/180) * arr[i].step  ;
+					ctx.save();
+					// ctx.fillStyle = 'lightcoral'
+					ctx.fillStyle = 'rgba('+ arr[i].red +','+ arr[i].green +','+ arr[i].blue +','+ arr[i].alp+')';
+					ctx.beginPath();
+					ctx.arc(arr[i].x,arr[i].y,arr[i].r,0,2*Math.PI);
+					ctx.fill();
+					ctx.restore();
+					if(arr[i].y <= 50)
+					{
+						arr.splice(i,1);
+					}
+				}
+			},1000/60)
+			
+			
+			setInterval(function(){
+				var r = Math.random() * 6 + 2;
+				var x = Math.random() *	canvas.width;					//Math.random() * canvas.width;
+				var y = canvas.height - r;						//Math.random() * canvas.height;
+				var red = Math.round(Math.random() * 255);
+				var green = Math.round(Math.random() * 255);
+				var blue = Math.round(Math.random() * 255);
+				var alp = 1;
+				var deg = 0;
+				var startX = x;
+				var statrY = y;
+				var step = Math.random() * 50 + 2;
+				arr.push({
+					x:x,
+					y:y,
+					r:r,
+					red:red,
+					green:green,
+					blue:blue,
+					alp:alp,
+					deg:deg,
+					step:step,
+					startX:x,
+					startY:y,
+				})
+			},50)
+		}
+		
+		
+		// setInterval(function(){
+			
+		// },1000/60)
+		
+		// var ctx = canvas.getContext('2d');
+		// ctx.beginPath();
+		// ctx.arc(100,100,50,0,2*Math.PI);
+		// ctx.strokeStyle = 'skyblue';
+		// ctx.stroke();
+		// ctx.closePath();
+	</script>
+</html>

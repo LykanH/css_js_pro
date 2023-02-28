@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+				background-color: white;
+            }
+			#first{
+					width: 300px;
+					height: 30px;
+					border: 0px solid black;
+					margin-left: 140px;
+					font-size: 18px;
+					color: #000000;
+					font-weight: bold;
+					}
+			#box1{
+				height: 100px;
+				width: 1250px;
+				margin: 50px auto;
+			}
+			a{
+				text-decoration: none;
+				color:steelblue;
+			}
+			.b{
+				width: 1200px;
+				height:100px
+				text-align: center;
+				margin: 0 100px;
+			}
+			.d{
+				width: 190px;
+				height: 50px;
+				float: left;
+				color: lightblue;
+				font-size: 18px;
+			}
+            #box {
+                width:1280px;
+                height: 108px;
+                margin: 15px auto;
+                border: 0px solid black;
+                /* 超出可视div区域隐藏 */
+                overflow: hidden;
+                position: relative;
+            }
+			
+            .c{
+                width: 2000px;
+                height: 100%;
+                position: absolute;
+                /* left: 0px; */
+                animation: lunbo 3s linear infinite;
+                /* 设置反向播放 */
+                animation-direction:alternate;
+            }
+            li{
+                width: 333px;
+                height: 100px;
+                float: left;
+                
+            }
+            
+            @keyframes lunbo{
+                /* from{
+                    left: 0px;
+                }
+                to{
+                    left: -800px;
+                } */
+                0%{
+                    left: 0px;
+                }
+                20%{
+                    left: 0px;
+                }
+                40%{
+                    left: -333px;
+                }
+                60%{
+                    left: -333px;
+                }
+                80%{
+                    left: -666px;
+                }
+                100%{
+                    left: -666px;
+                }
+                
+            }
+			
+			
+			</style>
+<!-- 			<style type="text/cssa">
+				#box1{
+						width:1200px;
+						height:100px;
+						margin: 0 auto;
+						border:2px #000000;
+					}
+					
+			</style> -->
+        
+    </head>
+    <body>
+		</div>
+		<div id="first">专题网站</div>
+        <div id="box">
+            <ul class="c">
+                <li><img src="../图片/4/dsxx.jpg"></li>
+                <li><img src="../图片/4/xxgk.jpg"></li>
+                <li><img src="../图片/2/19da.jpg"></li>
+				<li><img src="../图片/4/bwcx.jpg"></li>
+				<li><img src="../图片/4/jjxyb.jpg"></li>
+				<li><img src="../图片/4/lxjt1.jpg"></li>
+            </ul>
+		</div>
+			<div id="box1">
+				<ul class="b">
+					<li class="d">
+						
+						<a href="https://www.baidu.com ">
+							<img src="../图片/5/kjtd1.png" />领导信箱</a>
+					</li>
+					<li class="d">
+						<img src="../图片/5/kjtd2.png" />
+						<a href="https://www.taobao.com">信息门户</a>
+					</li>
+					<li class="d">
+						<img src="../图片/5/kjtd3.png" />
+						<a href="https://www.baidu.com">办公系统</a>
+					</li>
+					<li class="d">
+						<img src="../图片/5/kjtd4.png" />
+						<a href="https://www.baidu.com ">教务系统</a>
+					</li>
+					<li class="d">
+						<img src="../图片/5/kjtd5.png"/>
+						<a href="https://www.taobao.com ">邮件系统</a>
+					</li>
+					<li class="d">
+						<img src="../图片/5/kjtd6.png" />
+						<a href="https://www.taobao.com ">办公电话</a>
+					</li>
+				</ul>
+			</div>
+    </body>
+</html>
